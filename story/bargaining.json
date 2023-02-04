@@ -4,7 +4,31 @@
         "Bargaining."
     ],
     "conversation": [
-        "N: TODO"
+        "N: The wind… it seems to vortex around Sapling, threatening to suck away all breathable air.",
+        "S: Are they ok?",
+        "S: What happened to them?",
+        "O: We can’t know;",
+        "O: I’m sorry.",
+        "S: How can I get back?",
+        "S: I need to go back!",
+        "S: Please, send me back.",
+        "S: Please!",
+        "S: I’ll do anything.",
+        "S: I need to be with them.",
+        "S: Fucking anything!",
+        "S: They need me!",
+        "O:  I’m sorry, that is not my nature.",
+        "O: Unfortunately, you cannot bargain with death.",
+        "O: I cannot change reality.",
+        "O: This is not a fairytale.",
+        "O: All I can do now is be with you.",
+        "S: You can’t do anything?..",
+        "S: No one can do anything?",
+        "O: I’m sorry, but no.",
+        "O: This is the way of things.",
+        "S: So, It’s all…",
+        "S: hopeless.",
+        "N: The wind starts to howl like a dog crying."
     ],
     "nextFile": "depression.json"
 }
