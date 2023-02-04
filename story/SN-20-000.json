@@ -1,0 +1,60 @@
+{
+    "id": "SN-20-000",
+    "exposition": [
+        {
+            "minStrength": 0,
+            "text": "Two souls meet, a budding new relationship. Will the roots grow deep, or wither away?"
+        }
+    ],
+    "startingConversationId": "CN-000",
+    "conversationNodes": [ 
+        {
+            "id": "CN-000",
+            "playerName": "p1",
+            "exposition": "",
+            "choices": [
+                {
+                    "text": "Hello there",
+                    "rootImpact": 3,
+                    "nextConversationId": "CN-001"
+                },
+                {
+                    "text": "You're gross",
+                    "rootImpact": -5,
+                    "nextConversationId": "CN-010"
+                }
+            ]
+        },
+        {
+            "id": "CN-001",
+            "playerName": "p2",
+            "exposition": "",
+            "choices": [
+                {
+                    "text": "Obi-Wan Kenobi",
+                    "rootImpact": 5,
+                    "nextConversationId": null
+                }
+            ]
+        },
+        {
+            "id": "CN-010",
+            "playerName": "p2",
+            "exposition": "",
+            "choices": [
+                {
+                    "text": "Eat dirt!",
+                    "rootImpact": -3,
+                    "nextConversationId": null
+                }
+            ]
+        }
+    ],
+    "lifeDecision": {
+        "exposition": "The two souls part",
+        "choices": [
+            "text", "Both Souls attend the same university",
+            "nextNodeId", "SN-20-000"
+        ]
+    }
+}

@@ -4,7 +4,7 @@ export interface Exposition {
 }
 
 export interface ConversationChoice {
-    choiceText: string,
+    text: string,
     rootImpact: number, //Plus or Minus
     nextConversationId: string | null, // Null terminates flow, goes to decision
 }
@@ -13,23 +13,23 @@ export interface Conversation {
     id: string,
     playerName: string, //p1, p2, narrator
     exposition: string,
-    choice: ConversationChoice[],
+    choices: ConversationChoice[],
 }
 
 export interface LifeDecision {
     exposition: string,
-    choice: LifeDecisionChoice[],
+    choices: LifeDecisionChoice[],
 }
 
 export interface LifeDecisionChoice {
-    choice: string,
+    text: string,
     nextNodeId: string,
 }
 
 export interface StoryNode {
     id: string,
     exposition: Exposition[],           // Start here
-    startingConversation: Conversation, // Then here
+    startingConversationId: string, // Then here
     conversationNodes: Conversation[]   // Search by ID
     lifeDecision: LifeDecision,         // Finally here
 }

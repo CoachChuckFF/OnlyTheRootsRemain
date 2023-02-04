@@ -1,0 +1,60 @@
+{
+    "id": "SN-30-000",
+    "exposition": [
+        {
+            "minStrength": 0,
+            "text": "Two years have passed, our two souls meet again on their way to class."
+        }
+    ],
+    "startingConversationId": "CN-000",
+    "conversationNodes": [ 
+        {
+            "id": "CN-000",
+            "playerName": "p1",
+            "exposition": "",
+            "choices": [
+                {
+                    "text": "It's been a while, it's good to see you",
+                    "rootImpact": 8,
+                    "nextConversationId": "CN-001"
+                },
+                {
+                    "text": "... ew",
+                    "rootImpact": -8,
+                    "nextConversationId": "CN-010"
+                }
+            ]
+        },
+        {
+            "id": "CN-001",
+            "playerName": "p2",
+            "exposition": "",
+            "choices": [
+                {
+                    "text": "I know! I love you.",
+                    "rootImpact": 13,
+                    "nextConversationId": null
+                }
+            ]
+        },
+        {
+            "id": "CN-010",
+            "playerName": "p2",
+            "exposition": "",
+            "choices": [
+                {
+                    "text": "Blow me.",
+                    "rootImpact": -6,
+                    "nextConversationId": null
+                }
+            ]
+        }
+    ],
+    "lifeDecision": {
+        "exposition": "The two souls part",
+        "choices": [
+            "text", "Both Souls attend the same university",
+            "nextNodeId", "SN-40-000"
+        ]
+    }
+}
