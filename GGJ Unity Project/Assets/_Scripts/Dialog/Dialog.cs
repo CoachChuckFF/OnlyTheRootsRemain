@@ -16,11 +16,24 @@ public class Dialog : ScriptableObject
     [SerializeField, TextArea]
     private string _text;
 
+    private IEnumerator _internalEnumerator;
+
     public string CharacterName => _characterName;
 
     public bool IsComplete { get; private set; }
 
     public bool IsRunning { get; private set; }
+
+    public void Initialize()
+    {
+        IsComplete = false;
+        IsRunning = false;
+    }
+
+    public void Skip()
+    {
+        while (_internalEnumerator.MoveNext());
+    }
 
     /// <summary>
     /// Creates an enumerator that can be run as a coroutine to display this dialogs text
@@ -28,6 +41,17 @@ public class Dialog : ScriptableObject
     /// <param name="textBox">The text box to display text to</param>
     /// <returns></returns>
     public IEnumerator GetTextEnumerator(TMP_Text textBox)
+    {
+        _internalEnumerator = MakeInternalEnumerator(textBox);
+
+        while (_internalEnumerator.MoveNext())
+        {
+            yield return _internalEnumerator.Current;
+        }
+    }
+
+    //PRIVATE USE ONLY
+    private IEnumerator MakeInternalEnumerator(TMP_Text textBox)
     {
         textBox.text = System.String.Empty;
         IsRunning = true;
@@ -48,7 +72,7 @@ public class Dialog : ScriptableObject
                 }
                 c++;
 
-                if (_text[c] == ' ' && _text[escapeStartIndex - 1] == ' ' )
+                if (_text[c] == ' ' && _text[escapeStartIndex - 1] == ' ')
                 {
                     c++;
                 }

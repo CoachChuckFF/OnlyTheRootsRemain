@@ -386,6 +386,7 @@ MonoBehaviour:
   m_NameText: {fileID: 1470484299}
   m_TextBox: {fileID: 792881676}
   _currentDialog: {fileID: 11400000, guid: 2d22449b871e4bb42bc0c69c0ec01405, type: 2}
+  _nextDialog: {fileID: 11400000, guid: 4a8c736d2513a7f43bf548d5969544f8, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
