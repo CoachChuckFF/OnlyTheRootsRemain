@@ -53,8 +53,8 @@
     "lifeDecision": {
         "exposition": "The two souls part",
         "choices": [
-            "text", "Both Souls attend the same university",
-            "nextNodeId", "SN-20-000"
+            "text", "Stay the course",
+            "nextNodeId", "SN-30-000"
         ]
     }
 }
