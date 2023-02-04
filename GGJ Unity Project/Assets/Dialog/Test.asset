@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   m_SecondsPerCharacter: 0.1
-  _text: Hello [2] World
+  _characterName: Keenan
+  _text: Hello [2]World [2] lmao[2] xD

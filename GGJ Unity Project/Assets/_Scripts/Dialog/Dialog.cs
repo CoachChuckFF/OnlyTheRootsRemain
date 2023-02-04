@@ -11,7 +11,16 @@ public class Dialog : ScriptableObject
     private float m_SecondsPerCharacter;
 
     [SerializeField]
+    private string _characterName;
+
+    [SerializeField, TextArea]
     private string _text;
+
+    public string CharacterName => _characterName;
+
+    public bool IsComplete { get; private set; }
+
+    public bool IsRunning { get; private set; }
 
     /// <summary>
     /// Creates an enumerator that can be run as a coroutine to display this dialogs text
@@ -21,12 +30,15 @@ public class Dialog : ScriptableObject
     public IEnumerator GetTextEnumerator(TMP_Text textBox)
     {
         textBox.text = System.String.Empty;
+        IsRunning = true;
 
         for (int c = 0; c < _text.Length; c++)
         {
             // Looks for pause notation e.g. [0.5]
             if (_text[c] == '[')
             {
+                int escapeStartIndex = c;
+
                 c++;
                 string waitForSeconds = System.String.Empty;
                 while (_text[c] != ']' && c < _text.Length)
@@ -35,6 +47,11 @@ public class Dialog : ScriptableObject
                     c++;
                 }
                 c++;
+
+                if (_text[c] == ' ' && _text[escapeStartIndex - 1] == ' ' )
+                {
+                    c++;
+                }
 
                 if (System.Single.TryParse(waitForSeconds, out float result))
                 {
@@ -50,5 +67,7 @@ public class Dialog : ScriptableObject
 
             yield return new WaitForSeconds(m_SecondsPerCharacter);
         }
+        IsRunning = false;
+        IsComplete = true;
     }
 }
