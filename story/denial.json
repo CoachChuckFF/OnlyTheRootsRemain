@@ -1,0 +1,27 @@
+{
+    "id": "denial",
+    "exposition": [
+        "'When the roots are deep there is no reason to fear the wind.'",
+        "Denial."
+    ],
+    "conversation": [
+        "N: A new soul pops into existence; let’s call them Sapling. Across the way, an old soul resides; we’ll call them Oak. A budding new relationship, will their roots grow strong or will the winds of grief stop them from taking hold?",
+        "S: Hey you, what the hell are you? Why are you floating? Why am I floating? What is this place??",
+        "O: This is the afterlife, you have died.",
+        "S: What do you mean, died? I’m right here? I’m talking to you!",
+        "O: If you’re here, you’re dead, it’s the way of this place.",
+        "S: …",
+        "S: NOPE.",
+        "S: What type of optical Illusion is this… There’s no way I’m dead. I was just… What was I doing? Why can’t I remember?",
+        "O: Don’t worry, your memories from the past life will come back, they always do.",
+        "S: There is no ‘past life’, IM NOT DEAD.",
+        "S: NOPE. NOPE. NOPE.",
+        "O: It’s ok, you’re in denial. Sit with it, and allow yourself to realize the truth. Take your time. It is ok. ",
+        "S: …",
+        "S: …",
+        "S: …",
+        "S: ok. I’m dead.",
+        "N: Time passes here, a light breeze manifests, ruffling the leaves. Sapling’s healing has just begun, it will get worse before it gets better."
+    ],
+    "nextFile": "anger.json"
+}
