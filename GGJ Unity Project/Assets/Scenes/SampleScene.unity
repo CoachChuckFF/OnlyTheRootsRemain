@@ -383,10 +383,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f795745f98683d4fbbe5666ea40d62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SecondsPerCharacter: 0.1
   m_NameText: {fileID: 1470484299}
   m_TextBox: {fileID: 792881676}
-  _currentDialog: {fileID: 11400000, guid: 2d22449b871e4bb42bc0c69c0ec01405, type: 2}
-  _nextDialog: {fileID: 11400000, guid: 4a8c736d2513a7f43bf548d5969544f8, type: 2}
+  OnDialogComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,3 +837,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470484297}
   m_CullTransparentMesh: 1
+--- !u!1 &1487443913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1487443915}
+  - component: {fileID: 1487443914}
+  m_Layer: 0
+  m_Name: StoryController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1487443914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487443913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becd1973567bd8d4ba5a3836eaef83ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StoryID: test
+  m_DialogBox: {fileID: 528154764}
+--- !u!4 &1487443915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487443913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

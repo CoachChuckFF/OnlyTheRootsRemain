@@ -1,0 +1,10 @@
+{
+    "id": "depression",
+    "exposition": [
+        "Depression."
+    ],
+    "conversation": [
+        "N: TODO"
+    ],
+    "nextFile": "acceptance.json"
+}
