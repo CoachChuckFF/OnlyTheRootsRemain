@@ -26,9 +26,15 @@ public class GameData : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SceneManager.LoadScene(m_StoryID, LoadSceneMode.Additive);
+    }
+
     public void NextScene(string storyID)
     {
+        SceneManager.UnloadSceneAsync(m_StoryID);
         m_StoryID = storyID;
-        SceneManager.LoadScene("StoryScene");
+        SceneManager.LoadScene(storyID, LoadSceneMode.Additive);
     }
 }

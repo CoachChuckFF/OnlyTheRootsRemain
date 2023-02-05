@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Story : MonoBehaviour
 {
     [SerializeField]
+    private AudioController m_AudioController;
+
+    [SerializeField]
     private DialogController m_DialogBox;
 
     [SerializeField]
@@ -27,6 +30,7 @@ public class Story : MonoBehaviour
     {
         _storyState = StoryState.Loading;
         _storyNode = StoryNode.FromJSONFile($"DialogJSONs/{GameData.Instance.StoryID}");
+        m_AudioController.FadeIn();
         m_DialogBox.OnContinue.AddListener(MoveNext);
         m_Exposition.OnContinue.AddListener(MoveNext);
 
@@ -78,7 +82,8 @@ public class Story : MonoBehaviour
                 else
                 {
                     _storyState = StoryState.FadingOut;
-                    m_FadeOut.Fade(() => GameData.Instance.NextScene(_storyNode.NextFile));
+                    m_AudioController.FadeOut();
+                    m_FadeOut.Fade(Exit);
                 }
 
                 break;
@@ -93,6 +98,18 @@ public class Story : MonoBehaviour
         }
 
         _nextIndex++;
+    }
+
+    private void Exit()
+    {
+        if (_storyNode.NextFile != null)
+        {
+            GameData.Instance.NextScene(_storyNode.NextFile);
+        }
+        else
+        {
+            //TODO: add credits
+        }
     }
 
     private enum StoryState

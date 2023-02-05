@@ -10,9 +10,6 @@ public class Exposition : MonoBehaviour
     [SerializeField]
     private TMP_Text m_TextBox;
 
-    [SerializeField]
-    private float m_FadeTime;
-
     private TextWriter _textWriter;
 
     public bool IsComplete => _textWriter != null ? _textWriter.IsComplete : false;
@@ -33,7 +30,7 @@ public class Exposition : MonoBehaviour
 
         while (renderer.alpha > 0)
         {
-            renderer.alpha -= Time.deltaTime / m_FadeTime;
+            renderer.alpha -= Time.deltaTime / Settings.FadeTime;
             yield return null;
         }
         this.gameObject.SetActive(false);
