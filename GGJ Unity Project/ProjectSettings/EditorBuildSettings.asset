@@ -15,9 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Persistent.unity
     guid: 4ea5358797156e64b8932f7d85474409
   - enabled: 1
-    path: Assets/Scenes/Story/test.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/Story/denial.unity
-    guid: dac33a5c224530c40882b0972a5bdb78
+    guid: ad751a648b63e1442a4514331c18900f
+  - enabled: 1
+    path: Assets/Scenes/Story/anger.unity
+    guid: 9b54eb0e42715d245bd64cc82aa99dea
+  - enabled: 1
+    path: Assets/Scenes/Story/bargaining.unity
+    guid: a77699635b460914283902056290b557
+  - enabled: 1
+    path: Assets/Scenes/Story/depression.unity
+    guid: 81f3865a88c486f4282b95b9984471a0
+  - enabled: 1
+    path: Assets/Scenes/Story/acceptance.unity
+    guid: bbb927d6c9077fc4da2f939017c4f340
   m_configObjects: {}

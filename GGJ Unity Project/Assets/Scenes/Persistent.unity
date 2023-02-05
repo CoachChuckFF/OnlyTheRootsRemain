@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MusicController: {fileID: 2062276274}
-  m_StoryID: test
+  m_StoryID: denial
 --- !u!4 &1724215209
 Transform:
   m_ObjectHideFlags: 0
