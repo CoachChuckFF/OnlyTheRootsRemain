@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameData : MonoBehaviour
 {
     [SerializeField]
+    private AudioController m_MusicController;
+
+    [SerializeField]
     private string m_StoryID;
 
     public string StoryID => m_StoryID;
@@ -29,6 +32,7 @@ public class GameData : MonoBehaviour
     private void Start()
     {
         SceneManager.LoadScene(m_StoryID, LoadSceneMode.Additive);
+        m_MusicController.FadeIn();
     }
 
     public void NextScene(string storyID)

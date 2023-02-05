@@ -15,10 +15,6 @@ public class AudioController : MonoBehaviour
     private void Awake()
     {
         _source = this.GetComponent<AudioSource>();
-    }
-
-    public void Start()
-    {
         _source.loop = true;
         _source.volume = 0f;
         _source.clip = m_Clip;
