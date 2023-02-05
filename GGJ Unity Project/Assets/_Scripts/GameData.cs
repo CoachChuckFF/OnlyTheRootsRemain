@@ -39,6 +39,14 @@ public class GameData : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(m_StoryID);
         m_StoryID = storyID;
-        SceneManager.LoadScene(storyID, LoadSceneMode.Additive);
+        if (!System.String.IsNullOrWhiteSpace(storyID))
+        {
+            SceneManager.LoadScene(storyID, LoadSceneMode.Additive);
+        }
+        else
+        {
+            //TODO: add credits
+            m_MusicController.FadeOut();
+        }
     }
 }

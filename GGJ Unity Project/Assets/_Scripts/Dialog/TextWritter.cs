@@ -24,7 +24,8 @@ public class TextWriter
     {
         _text = text;
         _textBox = textBox;
-        _textBox.text = System.String.Empty;
+        _textBox.text = "<color=#00000000>" + _text; 
+        //_textBox.text = System.String.Empty;
     }
 
     public void Skip()
@@ -58,20 +59,23 @@ public class TextWriter
             if (_text[c] == '[')
             {
                 int escapeStartIndex = c;
+                int escapeCharacterCount = 0;
 
-                c++;
+                escapeCharacterCount++;
                 string waitForSeconds = System.String.Empty;
-                while (_text[c] != ']' && c < _text.Length)
+                while (_text[escapeStartIndex + escapeCharacterCount] != ']' && escapeStartIndex + escapeCharacterCount < _text.Length)
                 {
-                    waitForSeconds += _text[c];
-                    c++;
+                    waitForSeconds += _text[escapeStartIndex + escapeCharacterCount];
+                    escapeCharacterCount++;
                 }
-                c++;
+                escapeCharacterCount++;
 
-                if (_text[c] == ' ' && _text[escapeStartIndex - 1] == ' ')
+                if (_text[escapeStartIndex + escapeCharacterCount] == ' ' && _text[escapeStartIndex - 1] == ' ')
                 {
-                    c++;
+                    escapeCharacterCount++;
                 }
+
+                _text = _text.Remove(escapeStartIndex, escapeCharacterCount);
 
                 if (System.Single.TryParse(waitForSeconds, out float result))
                 {
@@ -82,8 +86,17 @@ public class TextWriter
                     Debug.LogWarning($"Dialog encountered an error with pausing near character {c}. Found \"{waitForSeconds}\"");
                 }
             }
+            if (_text[c] == '<')
+            {
+                do
+                {
+                    c++;
+                } while (_text[c] != '>' && c < _text.Length);
+                c++;
+            }
 
-            _textBox.text += _text[c];
+
+            _textBox.text = _text.Insert(c + 1, "<color=#00000000>");
 
             yield return new WaitForSeconds(Settings.CharactersPerSecond);
         }
