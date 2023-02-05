@@ -4,7 +4,35 @@
         "Acceptance."
     ],
     "conversation": [
-        "N: TODO"
+        "S: Papa?",
+        "S: How?",
+        "S: Why are you here?",
+        "O: Your soul manifested me to help your passing.",
+        "S: Like dying?",
+        "O: No, more than that, we will fade away soon.",
+        "O: Only the roots will remain.",
+        "S: Is that why you said you want me to feel wonderment ‘one last time’?",
+        "O: Yes, soon, there will be nothing",
+        "O: I’m glad you felt it.",
+        "S: Me too.",
+        "S: …",
+        "S: Thank you.",
+        "S: I love you.",
+        "O: I love you too.",
+        "S: …",
+        "S: Can we go together?",
+        "O: Yes.",
+        "O: Of course.",
+        "S: I’m glad you’re with me",
+        "S: I’m happy to have lived my life",
+        "S: I’m grateful to have loved my kiddos",
+        "S: They would have loved you.",
+        "S: …",
+        "S: …",
+        "S: Ok, I’m ready.",
+        
+        "N: Sapling and Oak fade away.",
+        "N: Only the tree remains."
     ],
     "nextFile": null
 }

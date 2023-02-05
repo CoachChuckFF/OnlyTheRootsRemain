@@ -20,6 +20,6 @@ export interface ConversationNode {
 export interface StoryNode {
     id: string,
     exposition: string[],              // Start here
-    conversation: ConversationNode[],  // In order
+    conversation: string[],  // In order
     nextFile: string | null,
 }
