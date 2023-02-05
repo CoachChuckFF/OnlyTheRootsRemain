@@ -60,7 +60,7 @@ public class Story : MonoBehaviour
                     //Counteracts the itteration at the end of the method
                     _nextIndex--;
 
-                    m_Exposition.Fade(() => 
+                    m_Exposition.Fade(() =>
                     {
                         _storyState = StoryState.Conversation;
                         MoveNext();
@@ -103,14 +103,7 @@ public class Story : MonoBehaviour
     private void Exit()
     {
         string nextFile = _storyNode.GetNextFile();
-        if (nextFile != null)
-        {
-            GameData.Instance.NextScene(nextFile);
-        }
-        else
-        {
-            //TODO: add credits
-        }
+        GameData.Instance.NextScene(nextFile);
     }
 
     private enum StoryState
