@@ -70,7 +70,8 @@ public class TextWriter
                 }
                 escapeCharacterCount++;
 
-                if (_text[escapeStartIndex + escapeCharacterCount] == ' ' && _text[escapeStartIndex - 1] == ' ')
+                if ((escapeStartIndex > 0 && _text[escapeStartIndex - 1] == ' ') &&
+                    (escapeStartIndex + escapeCharacterCount < _text.Length && _text[escapeStartIndex + escapeCharacterCount] == ' '))
                 {
                     escapeCharacterCount++;
                 }
@@ -79,14 +80,16 @@ public class TextWriter
 
                 if (System.Single.TryParse(waitForSeconds, out float result))
                 {
-                    yield return new WaitForSeconds(result);
+                    yield return new WaitForSeconds(result * 0.001f);
                 }
                 else
                 {
                     Debug.LogWarning($"Dialog encountered an error with pausing near character {c}. Found \"{waitForSeconds}\"");
                 }
             }
-            if (_text[c] == '<')
+
+            //handles Rich Text
+            if (c < _text.Length && _text[c] == '<')
             {
                 do
                 {
@@ -95,10 +98,16 @@ public class TextWriter
                 c++;
             }
 
-
-            _textBox.text = _text.Insert(c + 1, "<color=#00000000>");
-
-            yield return new WaitForSeconds(Settings.CharactersPerSecond);
+            if (c + 1 <= _text.Length)
+            {
+                _textBox.text = _text.Insert(c + 1, "<color=#00000000>");
+                yield return new WaitForSeconds(Settings.CharactersPerSecond);
+            }
+            //handles pauses at the end of text
+            else
+            {
+                yield return null;
+            }
         }
         _isRunning = false;
         _isComplete = true;
