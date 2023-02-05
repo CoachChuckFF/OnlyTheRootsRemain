@@ -1,5 +1,6 @@
 {
     "id": "bargaining",
+    "ambiance": "bargaining-loop.mp3",
     "exposition": [
         "Bargaining."
     ],

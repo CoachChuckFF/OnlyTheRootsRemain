@@ -1,5 +1,6 @@
 {
     "id": "acceptance",
+    "ambiance": "acceptance-loop.mp3",
     "exposition": [
         "Acceptance."
     ],
@@ -30,7 +31,6 @@
         "S: …",
         "S: …",
         "S: Ok, I’m ready.",
-        
         "N: Sapling and Oak fade away.",
         "N: Only the tree remains."
     ],
