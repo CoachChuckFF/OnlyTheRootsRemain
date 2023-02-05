@@ -1,11 +1,13 @@
 {
     "id": "bargaining",
     "ambiance": "bargaining-loop.mp3",
+    "mainMusicPercentage": "0.13",
     "exposition": [
         "Bargaining."
     ],
     "conversation": [
-        "N: The wind… it seems to vortex around Sapling, threatening to suck away all breathable air.",
+        "N: The wind... it seems to vortex around Sapling, threatening to suck away all breathable air.",
+        "S: [300]",
         "S: Are they ok?",
         "S: What happened to them?",
         "O: We can’t know;",
@@ -18,7 +20,7 @@
         "S: I need to be with them.",
         "S: Fucking anything!",
         "S: They need me!",
-        "O:  I’m sorry, that is not my nature.",
+        "O: I’m sorry, that is not my nature.",
         "O: Unfortunately, you cannot bargain with death.",
         "O: I cannot change reality.",
         "O: This is not a fairytale.",
@@ -27,8 +29,9 @@
         "S: No one can do anything?",
         "O: I’m sorry, but no.",
         "O: This is the way of things.",
-        "S: So, It’s all…",
+        "S: So, it’s all...",
         "S: hopeless.",
+        "S: [300]",
         "N: The wind starts to howl like a dog crying."
     ],
     "nextFile": "depression.json"
