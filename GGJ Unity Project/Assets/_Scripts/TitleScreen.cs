@@ -10,18 +10,27 @@ public class TitleScreen : MonoBehaviour
     private Button m_StartButton;
 
     [SerializeField]
+    private Button m_CreditsButton;
+
+    [SerializeField]
     private Button m_ExitButton;
 
     // Start is called before the first frame update
     void Start()
     {
         m_StartButton.onClick.AddListener(StartGame);
+        m_CreditsButton.onClick.AddListener(LoadCredits);
         m_ExitButton.onClick.AddListener(ExitGame);
     }
 
     private void StartGame()
     {
         SceneManager.LoadScene("Persistent");
+    }
+
+    private void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 
     private void ExitGame()

@@ -6,13 +6,16 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class DialogController : MonoBehaviour//, IPointerDownHandler
+public class DialogController : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text m_NameText;
 
     [SerializeField]
     private TMP_Text m_TextBox;
+
+    [SerializeField]
+    private List<Character> m_Characters;
 
     private TextWriter _currentTextWriter;
 
@@ -25,6 +28,10 @@ public class DialogController : MonoBehaviour//, IPointerDownHandler
     public void SetDialog(ConversationNode conversation)
     {
         m_NameText.text = conversation.Character.ToString();
+        foreach (Character character in m_Characters)
+        {
+            character.SetTalking(character.ConversationCharacter == conversation.Character);
+        }
         _currentTextWriter = new TextWriter(conversation.Text, m_TextBox);
     }
 
@@ -39,7 +46,7 @@ public class DialogController : MonoBehaviour//, IPointerDownHandler
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _currentTextWriter != null && IsStarted)
+        if (Input.GetMouseButtonDown(0) && _currentTextWriter != null && IsStarted && Time.timeScale == 1)
         {
             if (_currentTextWriter.IsComplete)
             {

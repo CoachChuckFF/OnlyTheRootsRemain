@@ -55,6 +55,16 @@ public class TextWriter
 
         for (int c = 0; c < _text.Length; c++)
         {
+            //handles Rich Text
+            if (c < _text.Length && _text[c] == '<')
+            {
+                do
+                {
+                    c++;
+                } while (_text[c] != '>' && c < _text.Length);
+                c++;
+            }
+
             // Looks for pause notation e.g. [0.5]
             if (_text[c] == '[')
             {
@@ -70,7 +80,8 @@ public class TextWriter
                 }
                 escapeCharacterCount++;
 
-                if (_text[escapeStartIndex + escapeCharacterCount] == ' ' && _text[escapeStartIndex - 1] == ' ')
+                if ((escapeStartIndex > 0 && _text[escapeStartIndex - 1] == ' ') &&
+                    (escapeStartIndex + escapeCharacterCount < _text.Length && _text[escapeStartIndex + escapeCharacterCount] == ' '))
                 {
                     escapeCharacterCount++;
                 }
@@ -79,26 +90,34 @@ public class TextWriter
 
                 if (System.Single.TryParse(waitForSeconds, out float result))
                 {
-                    yield return new WaitForSeconds(result);
+                    yield return new WaitForSeconds(result * 0.001f);
                 }
                 else
                 {
                     Debug.LogWarning($"Dialog encountered an error with pausing near character {c}. Found \"{waitForSeconds}\"");
                 }
             }
-            if (_text[c] == '<')
+
+            if (c + 1 <= _text.Length)
             {
-                do
+                _textBox.text = _text.Insert(c + 1, "<color=#00000000>");
+                yield return new WaitForSeconds(Settings.CharactersPerSecond);
+
+                //handles punctiation pauses
+                if (_text[c] == ',' || _text[c] == ';')
                 {
-                    c++;
-                } while (_text[c] != '>' && c < _text.Length);
-                c++;
+                    yield return new WaitForSeconds(0.3f);
+                }
+                else if (_text[c] == '.')
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
             }
-
-
-            _textBox.text = _text.Insert(c + 1, "<color=#00000000>");
-
-            yield return new WaitForSeconds(Settings.CharactersPerSecond);
+            //handles pauses at the end of text
+            else
+            {
+                yield return null;
+            }
         }
         _isRunning = false;
         _isComplete = true;

@@ -30,6 +30,7 @@ public class Story : MonoBehaviour
     {
         _storyState = StoryState.Loading;
         _storyNode = StoryNode.FromJSONFile($"DialogJSONs/{GameData.Instance.StoryID}");
+        MixerController.Instance.ChangeMusicVolume(_storyNode.MainMusicPercentage, 2f);
         m_AudioController.FadeIn();
         m_DialogBox.OnContinue.AddListener(MoveNext);
         m_Exposition.OnContinue.AddListener(MoveNext);
