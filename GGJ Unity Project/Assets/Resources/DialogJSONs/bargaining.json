@@ -21,7 +21,7 @@
         "S: Fucking anything!",
         "S: They need me!",
         "O: I’m sorry, that is not my nature.",
-        "O: Unfortunately, you cannot bargain with death.",
+        "O: Unfortunately, you cannot <b>bargain</b> with death.",
         "O: I cannot change reality.",
         "O: This is not a fairytale.",
         "O: All I can do now is be with you.",
@@ -32,7 +32,7 @@
         "S: So, it’s all...",
         "S: hopeless.",
         "S: [300]",
-        "N: The wind starts to howl like a dog crying."
+        "N: The wind starts to howl; as if crying itself."
     ],
     "nextFile": "depression.json"
 }
