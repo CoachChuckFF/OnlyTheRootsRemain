@@ -19,6 +19,7 @@ export interface ConversationNode {
 
 export interface StoryNode {
     id: string,
+    ambiance: string,
     exposition: string[],              // Start here
     conversation: string[],  // In order
     nextFile: string | null,
