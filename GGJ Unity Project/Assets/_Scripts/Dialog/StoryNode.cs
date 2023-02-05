@@ -33,6 +33,13 @@ public struct StoryNode
     /// <returns></returns>
     public static StoryNode FromJSONFile(string path)
     {
+        //prunes file type if exists
+        int fileTypeStartIndex = path.IndexOf(".json");
+        if (fileTypeStartIndex > 0)
+        {
+            path = path.Remove(fileTypeStartIndex);
+        }
+
         // loading in the text asset from resources Folder
         TextAsset textAsset = Resources.Load<TextAsset>(path);
         // deserializing node from text asset

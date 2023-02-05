@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class Story : MonoBehaviour
 {
-    [SerializeField]
-    private string m_StoryID;
-
     [SerializeField]
     private DialogController m_DialogBox;
 
     [SerializeField]
     private Exposition m_Exposition;
+
+    [SerializeField]
+    private FadeOut m_FadeOut;
 
     private StoryNode _storyNode;
 
@@ -19,26 +21,12 @@ public class Story : MonoBehaviour
 
     private int _nextIndex = 0;
 
-    public static Story Instance;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         _storyState = StoryState.Loading;
-        _storyNode = StoryNode.FromJSONFile($"DialogJSONs/{m_StoryID}");
+        _storyNode = StoryNode.FromJSONFile($"DialogJSONs/{GameData.Instance.StoryID}");
         m_DialogBox.OnContinue.AddListener(MoveNext);
         m_Exposition.OnContinue.AddListener(MoveNext);
 
@@ -71,7 +59,7 @@ public class Story : MonoBehaviour
                     m_Exposition.Fade(() => 
                     {
                         _storyState = StoryState.Conversation;
-                        m_DialogBox.StartDialog();
+                        MoveNext();
                     });
                 }
 
@@ -90,17 +78,18 @@ public class Story : MonoBehaviour
                 else
                 {
                     _storyState = StoryState.FadingOut;
-                    //TODO: add scene change logic
+                    m_FadeOut.Fade(() => GameData.Instance.NextScene(_storyNode.NextFile));
                 }
 
                 break;
 
             case StoryState.FadingOut:
-
-                break;
+                //RETURN
+                return;
 
             default:
-                break;
+                //RETURN
+                return;
         }
 
         _nextIndex++;

@@ -27,7 +27,7 @@ public class Exposition : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeCorountine(UnityAction callback)
+    private IEnumerator FadeCoroutine(UnityAction callback)
     {
         CanvasGroup renderer = this.GetComponent<CanvasGroup>();
 
@@ -49,6 +49,6 @@ public class Exposition : MonoBehaviour
 
     public void Fade(UnityAction callback)
     {
-        StartCoroutine(FadeCorountine(callback));
+        StartCoroutine(FadeCoroutine(callback));
     }
 }
