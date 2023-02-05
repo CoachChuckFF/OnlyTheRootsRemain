@@ -55,6 +55,16 @@ public class TextWriter
 
         for (int c = 0; c < _text.Length; c++)
         {
+            //handles Rich Text
+            if (c < _text.Length && _text[c] == '<')
+            {
+                do
+                {
+                    c++;
+                } while (_text[c] != '>' && c < _text.Length);
+                c++;
+            }
+
             // Looks for pause notation e.g. [0.5]
             if (_text[c] == '[')
             {
@@ -88,20 +98,20 @@ public class TextWriter
                 }
             }
 
-            //handles Rich Text
-            if (c < _text.Length && _text[c] == '<')
-            {
-                do
-                {
-                    c++;
-                } while (_text[c] != '>' && c < _text.Length);
-                c++;
-            }
-
             if (c + 1 <= _text.Length)
             {
                 _textBox.text = _text.Insert(c + 1, "<color=#00000000>");
                 yield return new WaitForSeconds(Settings.CharactersPerSecond);
+
+                //handles punctiation pauses
+                if (_text[c] == ',' || _text[c] == ';')
+                {
+                    yield return new WaitForSeconds(0.3f);
+                }
+                else if (_text[c] == '.')
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
             }
             //handles pauses at the end of text
             else
