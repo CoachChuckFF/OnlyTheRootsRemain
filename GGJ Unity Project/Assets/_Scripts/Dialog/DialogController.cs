@@ -46,7 +46,7 @@ public class DialogController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _currentTextWriter != null && IsStarted)
+        if (Input.GetMouseButtonDown(0) && _currentTextWriter != null && IsStarted && Time.timeScale == 1)
         {
             if (_currentTextWriter.IsComplete)
             {

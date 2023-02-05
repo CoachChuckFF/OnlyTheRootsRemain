@@ -41,13 +41,13 @@ public class Character : MonoBehaviour
             _isTalking = true;
             _image.color = Color.HSVToRGB(0, 0, 1);
             this.transform.localScale = Vector3.one * 1.2f;
-            _bounceTimer = 0;
         }
         else
         {
             _isTalking = false;
             _image.color = Color.HSVToRGB(0, 0, 0.7f);
             this.transform.localScale = Vector3.one;
+            _bounceTimer = 0;
         }
     }
 }
