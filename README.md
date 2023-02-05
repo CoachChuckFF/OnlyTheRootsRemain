@@ -13,3 +13,4 @@ A Visual Novel - A new soul pops into existence; Sapling. Across the way, an old
 - [Global Game Jam](https://globalgamejam.org/2023/games/only-roots-remain-3)
 - [Play Now](https://silverdesign.itch.io/only-the-roots-remain)
 - [Download](https://drive.google.com/drive/folders/1t5XCkC5ltq8z2ArVCIm9VwEOfJ5ngcBO?usp=share_link)
+- [Artwork](https://www.artstation.com/artaddictedalex)
