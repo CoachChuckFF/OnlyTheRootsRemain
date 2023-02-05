@@ -9,7 +9,7 @@ A Visual Novel - A new soul pops into existence; Sapling. Across the way, an old
 (Download)[https://drive.google.com/drive/folders/1t5XCkC5ltq8z2ArVCIm9VwEOfJ5ngcBO?usp=share_link]
 
 ## The Team ( Team Fruit Jammers )
-- Dawn ( Dev )
-- Christian ( Dev )
-- Alexander ( Artist )
-- Keenan ( Dev )
+- Dawn ( Artist/Music/FX )
+- Christian ( Story/Game Design )
+- Alexander ( Artist/Concept Artist )
+- Keenan ( Programmer )
