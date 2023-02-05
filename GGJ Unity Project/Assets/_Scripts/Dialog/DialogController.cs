@@ -6,53 +6,68 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class DialogController : MonoBehaviour, IPointerDownHandler
+public class DialogController : MonoBehaviour//, IPointerDownHandler
 {
-    [SerializeField]
-    private float m_SecondsPerCharacter;
-
     [SerializeField]
     private TMP_Text m_NameText;
 
     [SerializeField]
     private TMP_Text m_TextBox;
 
-    private Dialog _currentDialog;
+    private TextWriter _currentTextWriter;
 
-    public UnityEvent OnDialogComplete;
+    public bool IsStarted { get; private set; } = false;
 
-    //[SerializeField]
-    //private Dialog _currentDialog;
+    public bool IsComplete => _currentTextWriter != null ? _currentTextWriter.IsComplete : false;
 
-    ////TEST
-    //[SerializeField]
-    //private Dialog _nextDialog;
+    public UnityEvent OnContinue;
 
-    public float SecondsPerCharacter => m_SecondsPerCharacter;
+    //void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+    //{
+    //    if (_currentTextWriter != null)
+    //    {
+    //        if (_currentTextWriter.IsComplete)
+    //        {
+    //            OnContinue?.Invoke();
 
-    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+    //        }
+    //        else
+    //        {
+    //            _currentTextWriter.Skip();
+    //            StopAllCoroutines();
+    //        }
+    //    }
+    //}
+
+    public void SetDialog(ConversationNode conversation)
     {
-        if (_currentDialog != null)
-        {
-            if (_currentDialog.IsComplete)
-            {
-                OnDialogComplete?.Invoke();
+        m_NameText.text = conversation.Character.ToString();
+        _currentTextWriter = new TextWriter(conversation.Text);
+    }
 
-            }
-            else
-            {
-                _currentDialog.Skip();
-                StopAllCoroutines();
-            }
+    public void StartDialog()
+    {
+        if (_currentTextWriter != null)
+        {
+            StartCoroutine(_currentTextWriter.GetTextEnumerator(m_TextBox));
+            IsStarted = true;
         }
     }
 
-    public void StartDialog(ConversationNode conversation)
+    public void Update()
     {
-        m_NameText.text = conversation.Character.ToString();
-        _currentDialog = new Dialog(conversation.Text, this);
-
-        StartCoroutine(_currentDialog.GetTextEnumerator(m_TextBox));
+        if (Input.GetMouseButtonDown(0) && _currentTextWriter != null && IsStarted)
+        {
+            if (_currentTextWriter.IsComplete)
+            {
+                OnContinue?.Invoke();
+            }
+            else
+            {
+                _currentTextWriter.Skip();
+                StopAllCoroutines();
+            }
+        }
     }
 
 }

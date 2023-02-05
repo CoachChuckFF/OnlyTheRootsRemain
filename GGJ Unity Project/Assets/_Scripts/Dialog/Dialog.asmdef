@@ -2,7 +2,8 @@
     "name": "Dialog",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:e3432cc02647f344dbb7676296d3c57e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
