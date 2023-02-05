@@ -24,7 +24,22 @@ public struct StoryNode
     public string ID => id;
     public string[] Exposition => exposition;
     public ConversationNode[] ConversationNodes => _conversationNodes;
-    public string NextFile => nextFile;
+    //public string NextFile => nextFile;
+
+    public string GetNextFile()
+    {
+        string ret = nextFile;
+        if (nextFile != null)
+        {
+            int fileTypeStartIndex = nextFile.IndexOf(".json");
+            if (fileTypeStartIndex > 0)
+            {
+                ret = nextFile.Remove(fileTypeStartIndex);
+            }
+        }
+
+        return ret;
+    }
 
     /// <summary>
     /// deserializes and returns a StoryNode from the file path

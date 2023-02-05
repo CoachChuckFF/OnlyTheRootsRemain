@@ -102,9 +102,10 @@ public class Story : MonoBehaviour
 
     private void Exit()
     {
-        if (_storyNode.NextFile != null)
+        string nextFile = _storyNode.GetNextFile();
+        if (nextFile != null)
         {
-            GameData.Instance.NextScene(_storyNode.NextFile);
+            GameData.Instance.NextScene(nextFile);
         }
         else
         {
