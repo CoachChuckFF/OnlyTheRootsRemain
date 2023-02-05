@@ -1,5 +1,7 @@
 {
     "id": "test",
+    "ambiance": "acceptance-loop.mp3",
+    "mainMusicPercentage": "0.8",
     "exposition": [
         "Acceptance."
     ],

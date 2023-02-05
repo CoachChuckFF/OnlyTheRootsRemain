@@ -18,12 +18,17 @@ public struct StoryNode
     [SerializeField]
     private string nextFile;
 
+    [SerializeField]
+    private float mainMusicPercentage;
+
     [System.NonSerialized]
     private ConversationNode[] _conversationNodes;
 
     public string ID => id;
     public string[] Exposition => exposition;
     public ConversationNode[] ConversationNodes => _conversationNodes;
+
+    public float MainMusicPercentage => mainMusicPercentage;
     //public string NextFile => nextFile;
 
     public string GetNextFile()
