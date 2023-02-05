@@ -10,6 +10,8 @@ public class TextWriter
 
     private IEnumerator _internalEnumerator;
 
+    private TMP_Text _textBox;
+
     private bool _isComplete = false;
 
     private bool _isRunning = false;
@@ -18,9 +20,11 @@ public class TextWriter
 
     public bool IsRunning => _isRunning;
 
-    public TextWriter(string text)
+    public TextWriter(string text, TMP_Text textBox)
     {
         _text = text;
+        _textBox = textBox;
+        _textBox.text = System.String.Empty;
     }
 
     public void Skip()
@@ -33,9 +37,9 @@ public class TextWriter
     /// </summary>
     /// <param name="textBox">The text box to display text to</param>
     /// <returns></returns>
-    public IEnumerator GetTextEnumerator(TMP_Text textBox)
+    public IEnumerator GetTextEnumerator()
     {
-        _internalEnumerator = MakeInternalEnumerator(textBox);
+        _internalEnumerator = MakeInternalEnumerator();
 
         while (_internalEnumerator.MoveNext())
         {
@@ -44,9 +48,8 @@ public class TextWriter
     }
 
     //PRIVATE USE ONLY
-    private IEnumerator MakeInternalEnumerator(TMP_Text textBox)
+    private IEnumerator MakeInternalEnumerator()
     {
-        textBox.text = System.String.Empty;
         _isRunning = true;
 
         for (int c = 0; c < _text.Length; c++)
@@ -80,7 +83,7 @@ public class TextWriter
                 }
             }
 
-            textBox.text += _text[c];
+            _textBox.text += _text[c];
 
             yield return new WaitForSeconds(Settings.CharactersPerSecond);
         }

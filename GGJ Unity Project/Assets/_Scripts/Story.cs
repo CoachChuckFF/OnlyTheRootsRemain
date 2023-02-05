@@ -71,7 +71,6 @@ public class Story : MonoBehaviour
                     m_Exposition.Fade(() => 
                     {
                         _storyState = StoryState.Conversation;
-                        MoveNext();
                         m_DialogBox.StartDialog();
                     });
                 }

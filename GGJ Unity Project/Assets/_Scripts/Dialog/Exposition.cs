@@ -43,8 +43,8 @@ public class Exposition : MonoBehaviour
 
     public void StartExposition(string text)
     {
-        _textWriter = new TextWriter(text);
-        StartCoroutine(_textWriter.GetTextEnumerator(m_TextBox));
+        _textWriter = new TextWriter(text, m_TextBox);
+        StartCoroutine(_textWriter.GetTextEnumerator());
     }
 
     public void Fade(UnityAction callback)

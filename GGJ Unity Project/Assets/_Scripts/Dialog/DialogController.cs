@@ -22,34 +22,17 @@ public class DialogController : MonoBehaviour//, IPointerDownHandler
 
     public UnityEvent OnContinue;
 
-    //void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-    //{
-    //    if (_currentTextWriter != null)
-    //    {
-    //        if (_currentTextWriter.IsComplete)
-    //        {
-    //            OnContinue?.Invoke();
-
-    //        }
-    //        else
-    //        {
-    //            _currentTextWriter.Skip();
-    //            StopAllCoroutines();
-    //        }
-    //    }
-    //}
-
     public void SetDialog(ConversationNode conversation)
     {
         m_NameText.text = conversation.Character.ToString();
-        _currentTextWriter = new TextWriter(conversation.Text);
+        _currentTextWriter = new TextWriter(conversation.Text, m_TextBox);
     }
 
     public void StartDialog()
     {
         if (_currentTextWriter != null)
         {
-            StartCoroutine(_currentTextWriter.GetTextEnumerator(m_TextBox));
+            StartCoroutine(_currentTextWriter.GetTextEnumerator());
             IsStarted = true;
         }
     }
